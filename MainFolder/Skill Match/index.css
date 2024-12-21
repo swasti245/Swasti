@@ -679,9 +679,6 @@ body {
   
 }
 
-/* Responsive CSS Adjustments */
-
-/* General container adjustments for smaller screens */
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
