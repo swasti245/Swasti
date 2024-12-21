@@ -141,6 +141,10 @@ body {
   .right ul li {
     margin: 0 5px;
   }
+
+  .hamburger-menu {
+    display: block;
+  }
 }
 
 @media (max-width: 480px) {
@@ -152,19 +156,42 @@ body {
     font-size: 0.8rem;
   }
 
-  .right ul li a {
-    font-size: 0.8rem;
+  .right ul {
+    display: none;
   }
 
-  .right ul li a img {
-    width: 25px;
-    height: 25px;
+  .hamburger-menu {
+    display: block;
+    cursor: pointer;
   }
 
-  .center {
-    padding: 5px 10px;
+  .right ul.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    right: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .right ul li {
+    margin: 10px 0;
+  }
+
+  .hamburger-menu {
+    display: block;
   }
 }
+
+.hamburger-menu {
+  display:none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 
 /* ------------navbar ended------------- */
 

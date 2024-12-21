@@ -13,78 +13,40 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
 
-
-
-    <link rel="stylesheet" href="index.css" />
+<link rel="stylesheet" href="index.css" />
   </head>
+
+
+
   <body>
-    <nav class="navbar">
+  
+    <div class="navbar">
       <div class="left">
-        <a href="index.html" class="logo">
-          <img src="/images/logo.png" alt="logo"
-        />
-        <div class="title">SKILLMATCH
-        </div>
-        
-      </a>
+        <img src="/images/logo.png" alt="Logo">
+        <span class="title">SKILL MATCH</span>
       </div>
-      
-
       <div class="center">
-        <img src="/images/search.png" alt="">
-        <input
-          type="text"
-          placeholder="Search for People / Projects ..."
-        />
-        <!-- <button type="submit">Go</button> -->
+        <img src="/images/search.png" alt="Search">
+        <input type="text" placeholder="Search for Peoples/Projects...">
       </div>
-
-
+      <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
       <div class="right">
         <ul>
-          <li>
-            <a href="index.html" class="home"
-              ><img src="/images/home2.png" />
-              <div >HOME</div></a
-            >
-          </li>
-          <li>
-            <a href="#" class="people"
-              ><img src="/images/people2.png" />
-              <div >PEOPLE</div></a
-            >
-          </li>
-      
-          <li>
-            <a href="#" class="navbarprojects">
-              <img src="/images/applications3.png" alt="">
-              <div>PROJECTS</div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="applications"
-              ><img src="/images/applications5.png" height="30px" />
-              <div >PROJECT <br>APPLICATIONS</div></a
-            >
-          </li>
-
-          <li>
-            <a href="#" class="messages"
-              ><img src="/images/message2.png" /><div >MESSAGES</div></a
-            >
-          </li>
-          <li>
-            <div class="profilepage">
-              <a href="profile_page.html"><img src="/images/people2.png" ></a>
-            </div> 
-            
-          </li>
-          
+          <li><a href="index.html"><img src="/images/home2.png" >Home</a></li>
+          <li><a href="#"><img src="/images/people2.png" alt="">Peoples</a></li>
+          <li><a href="projects.html"><img src="/images/applications3.png">Projects</a></li>
+          <li><a href="#"><img src="/images/applications5.png" >Project Applications</a></li>
+          <li><a href="#"><img src="/images/message2.png" >MESSAGES</a></li>
+          <li><a href="profile_page.html"><img src="/images/people2.png" ></a></li>
         </ul>
-        
       </div>
-    </nav>
-
+    </div>
+    
+    <script>
+      function toggleMenu() {
+        document.querySelector('.right ul').classList.toggle('active');
+      }
+    </script>
 
   <!-- ----------------navbar ended-------------------->
   

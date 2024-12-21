@@ -76,6 +76,10 @@ button:hover {
     background-color: #5a9fea;
 }
 
+.signup{
+    padding: 25px;
+}
+
 @media (max-width: 600px) {
     .login-container {
         width: 90%;
