@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="profile_page.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="left">
+      <a href="index.html" class="logo">
+        <img src="/images/logo.png" alt="logo"
+      />
+      <div class="title">SKILLMATCH
+      </div>
+      
+    </a>
+    </div>
+    
+
+    <div class="center">
+      <img src="/images/search.png" alt="">
+      <input
+        type="text"
+        placeholder="Search for People / Projects ..."
+      />
+      <!-- <button type="submit">Go</button> -->
+    </div>
+
+
+    <div class="right">
+      <ul>
+        <li>
+          <a href="index.html" class="home"
+            ><img src="/images/home2.png" />
+            <div >HOME</div></a
+          >
+        </li>
+        <li>
+          <a href="#" class="people"
+            ><img src="/images/people2.png" />
+            <div >PEOPLE</div></a
+          >
+        </li>
+    
+        <li>
+          <a href="#" class="navbarprojects">
+            <img src="/images/applications3.png" alt="">
+            <div>PROJECTS</div>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="applications"
+            ><img src="/images/applications5.png" height="30px" />
+            <div >PROJECT <br>APPLICATIONS</div></a
+          >
+        </li>
+
+        <li>
+          <a href="#" class="messages"
+            ><img src="/images/message2.png" /><div >MESSAGES</div></a
+          >
+        </li>
+        <li>
+          <div class="profilepage">
+            <a href="profile_page.html"><img src="/images/people2.png" ></a>
+          </div> 
+          
+        </li>
+        
+      </ul>
+      
+    </div>
+  </nav>
+
+
+
+    <div class="profile-container">
+        <div class="profile-header">
+          <div class="profile-photo-container">
+            <img src="/images/people2.png" alt="Profile Photo" class="profile-photo">
+            <div class="photo-options">
+                <button onclick="openCamera()">Camera</button>
+                <button onclick="openGallery()">Gallery</button>
+                <button onclick="removePhoto()">Remove</button>
+            </div>
+        </div>
+            <div class="profile-details">
+                <h2>NAME</h2>
+                <h3>Designation</h3>
+                <h4>Institute</h4>
+              
+            </div>
+        </div>
+
+        <div class="skills">
+          <h3>SKILLS</h2>
+          <P>Description of skills
+            <p>Skill 1 <textarea name="" id=""></textarea></p>
+            <p>Skill 2 <textarea name="" id=""></textarea></p>
+            <p>Skill 3 <textarea name="" id=""></textarea></p>
+            <p>Skill 4 <textarea name="" id=""></textarea></p>
+            <p>Skill 5 <textarea name="" id=""></textarea></p>
+          </P>
+        </div>
+
+        <div class="availability">
+            <label for="availability-toggle">Availability Status:</label>
+            <label class="toggle-switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+        </div>
+        
+
+        <div class="skills-section">
+          <h3>Ratings on Skills</h3>
+            <div class="skill_rating">
+              
+                <span>Skill 1</span>
+                <div class="stars">
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                </div>
+            </div>
+
+            <div class="skill_rating">
+                <span>Skill 2</span>
+                <div class="stars">
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                </div>
+            </div>
+            <div class="skill_rating">
+                <span>Skill 3</span>
+                <div class="stars">
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                </div>
+            </div>
+            <div class="skill_rating">
+                <span>Skill 4</span>
+                <div class="stars">
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                </div>
+            </div>
+            <div class="skill_rating">
+                <span>Skill 5</span>
+                <div class="stars">
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                    <button class="star">&#9733;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects-section">
+            <h3>Projects</h3>
+            <div class="projects-stats">
+                <div>
+                    <h4>Hosted</h4>
+                    <p>5</p>
+                </div>
+                <div>
+                    <h4>Completed</h4>
+                    <p>10</p>
+                </div>
+                <div>
+                    <h4>Ongoing</h4>
+                    <p>2</p>
+                </div>
+                <div>
+                    <h4>Scheduled</h4>
+                    <p>3</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="Settings">Settings</button>
+            <button class="signout">Sign Out</button>
+        </div>
+    </div>
+
+    <script>
+         function togglePhotoOptions() {
+        const photoOptions = document.getElementById('photoOptions');
+        if (photoOptions.style.display === 'block') {
+            photoOptions.style.display = 'none';
+        } else {
+            photoOptions.style.display = 'block';
+        }
+    }
+
+    function openCamera(event) {
+        event.stopPropagation(); // Prevent triggering the toggle
+        alert('Opening Camera...');
+    }
+
+    function openGallery(event) {
+        event.stopPropagation(); // Prevent triggering the toggle
+        alert('Opening Gallery...');
+    }
+
+    function removePhoto(event) {
+        event.stopPropagation(); // Prevent triggering the toggle
+        alert('Removing Photo...');
+    }
+
+    // Close the options when clicking outside
+    document.addEventListener('click', (event) => {
+        const photoOptions = document.getElementById('photoOptions');
+        if (photoOptions && photoOptions.style.display === 'block') {
+            photoOptions.style.display = 'none';
+        }
+    });
+
+        document.querySelectorAll('.stars button').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const stars = event.currentTarget.parentElement.querySelectorAll('button');
+                let clickedIndex = Array.from(stars).indexOf(event.currentTarget);
+                stars.forEach((star, index) => {
+                    star.classList.toggle('active', index <= clickedIndex);
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
