@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: rgba(28, 83, 134, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,13 +57,13 @@ input {
 }
 
 input:focus {
-    border-color: #007BFF;
+    border-color:rgba(24, 93, 149, 1);
 }
 
 button {
     width: 100%;
     padding: 10px;
-    background-color: #529ceb;
+    background-color:  rgba(24, 93, 149, 1);
     color: white;
     border: none;
     border-radius: 4px;
