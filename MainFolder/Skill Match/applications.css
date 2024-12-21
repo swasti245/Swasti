@@ -114,7 +114,7 @@
     transition: all 0.3s ease;
   }
   
-  /* Responsive Design */
+  
   @media (max-width: 768px) {
     .navbar {
       flex-wrap: wrap;
@@ -194,4 +194,228 @@
 
   /* ----------------nav bar ends ----------------------- */
 
+  body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:rgba(24, 93, 149, 0.402);
+}
+
+
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: navy;
+  padding: 20px;
+  z-index: 300;
+}
+
+header h1 {
+  font-size: 22px;
+  color: whitesmoke;
   
+}
+
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+
+.profile-card {
+  background: whitesmoke;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  margin: 1vh 4vw;
+  padding: 20px 40px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.profile-photo {
+  width: 20vw;
+  max-width: 100px;
+  height: auto;
+  border-radius: 50%;
+ 
+}
+
+.profile-details h2{
+  font-size: 16px;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 10px 30px;
+}
+
+.profile-details p{
+  font-size: 14px;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 10px 30px;
+}
+
+.skills h3 {
+  font-size: 16px;
+  color: black;
+  margin: 10px 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.skills ul li{
+  color:navy;
+  margin: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  
+}
+
+.skills ul li span{
+  margin: 1px 5px;
+}
+
+.profile-card .skills {
+  list-style: none;
+  
+}
+
+.profile-card .rating {
+  color: #ffc107;
+  font-size: 16px;
+}
+
+.experience h3{
+  font-size: 16px;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 10px 30px;
+}
+
+.experience p{
+  font-size: 14px;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 10px 30px;
+}
+
+.profile-card .view-more {
+  background: #007bff;
+  color: whitesmoke;
+  border: none;
+  margin: 70px 15px;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.profile-card .view-more:hover {
+  background: #0056b3;
+}
+.profile-card .approved {
+  background: #007bff;
+  color: whitesmoke;
+  margin: 70px 20px ;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.profile-card .approved:hover {
+  background: #0056b3;
+}
+
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+
+
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .profile-photo {
+    width: 30vw;
+    max-width: 80px;
+    height: auto;
+  }
+
+  .profile-details h2,
+  .profile-details p,
+  .skills h3,
+  .skills ul li,
+  .experience h3,
+  .experience p {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .profile-card .view-more,
+  .profile-card .approved {
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 480px) {
+
+  header {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 16px;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  .profile-card {
+    padding: 15px;
+  }
+
+  .profile-photo {
+    width: 40vw;
+    max-width: 60px;
+    height: auto;
+  }
+
+  .profile-details h2 {
+    font-size: 14px;
+  }
+
+  .profile-details p,
+  .skills ul li,
+  .experience p {
+    font-size: 12px;
+  }
+
+  .profile-card .view-more,
+  .profile-card .approved {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
