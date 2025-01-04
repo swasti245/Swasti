@@ -1,40 +1,51 @@
-function addPicture() {
-  alert("Add picture functionality to be implemented.");
-}
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
-function removePicture() {
-  document.getElementById("profile-img").src = "default-profile.png";
-}
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDdftGzRbm_sOtbKSwivEVpNyaXVA4nzjc",
+  authDomain: "skillmatch-act.firebaseapp.com",
+  projectId: "skillmatch-act",
+  storageBucket: "skillmatch-act.appspot.com",
+  messagingSenderId: "194495863137",
+  appId: "1:194495863137:web:7fcd7ab7149aa6a7700d20"
+};
 
-function importPicture() {
-  alert("Import picture functionality to be implemented.");
-}
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-function editProfile() {
-  alert("Edit profile functionality to be implemented.");
-}
+// Monitor authentication state
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    // Fetch user data from Firestore
+    try {
+      const userDoc = await getDoc(doc(db, "users", user.uid));
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
 
-function openSettings() {
-  alert("Settings functionality to be implemented.");
-}
-
-function signOut() {
-  alert("Do you really want to sign out?");
-
-}
-
-function addSkillField() {
-  const skillList = document.getElementById("skill-list");
-  const textarea = document.createElement("textarea");
-  textarea.placeholder = "Enter your new skill...";
-  textarea.style.display = "block";
-  textarea.style.margin = "10px 0";
-  textarea.style.width = "100%";
-  textarea.style.height = "40px";
-  textarea.style.padding = "10px";
-  textarea.style.fontSize = "18px";
-  textarea.style.border = "1px solid #ccc";
-  textarea.style.borderRadius = "5px";
-  textarea.style.resize = "none";
-  skillList.appendChild(textarea);
-}
+        
+        // Update the page with user data
+        document.getElementById("user-name").textContent = userData.fullName || "Name Not Available";
+        document.getElementById("institute").textContent = userData.institute || "Institute Not Available";
+        document.getElementById("designation").textContent = userData.designation || "Designation Not Available";
+        document.getElementById("skill").textContent = userData.skills || "Skills Not Available";
+        document.getElementById("email").textContent = userData.email || "Email Not Available";
+      } else {
+        console.error("No user data found in Firestore.");
+        document.getElementById("name").textContent = "No Data Found";
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  } else {
+    // User is not signed in
+    document.getElementById("user-name").textContent = "Not Logged In";
+    document.getElementById("institute").textContent = "";
+    document.getElementById("designation").textContent = "";
+    document.getElementById("skill").textContent = "";
+    document.getElementById("email").textContent = "";
+  }
+});
