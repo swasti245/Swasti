@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SKILL MATCH</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+      }
+
+      .navbar .left,
+      .navbar .center,
+      .navbar .right {
+        display: flex;
+        align-items: center;
+      }
+
+      .container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .sidebar {
+        flex: 1;
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .maincontent {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .postbox .postbutton button {
+        display: block;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      .blurred-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 10;
+      }
+
+      .card-overlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 75vw;
+        height: 75vh;
+        background: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        display: none;
+        z-index: 20;
+        overflow-y: auto;
+        padding: 20px;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .input-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .input-group label {
+        margin-bottom: 5px;
+      }
+
+      .input-group input,
+      .input-group select,
+      textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .horizontal-group {
+        display: flex;
+        gap: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .horizontal-group {
+          flex-direction: column;
+        }
+
+        .container {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="left">
+        <img src="/images/logo.png" alt="Logo" />
+        <a href="index.html">SKILL MATCH</a>
+      </div>
+      <div class="center">
+        <img src="/images/search.png" alt="Search" />
+        <input type="text" placeholder="Search for Peoples/Projects..." />
+      </div>
+      <div class="right">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="peoples.html">Peoples</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="applications.html">Project Applications</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="profile_page.html">Profile</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="sidebar">
+        <div class="profilebox">
+          <div class="profilephoto">
+            <img src="/images/people2.png" alt="Profile Photo" />
+          </div>
+          <div class="name">NAME</div>
+          <div class="profileinfo">
+            <ul>
+              <li>INSTITUTION</li>
+              <li>SKILLS</li>
+              <li>PROJECTS</li>
+            </ul>
+          </div>
+          <div class="status">STATUS: Available/Busy</div>
+          <button>VIEW MORE</button>
+        </div>
+        <div class="postbox">
+          <div class="postbutton">
+            <button id="post-btn">POST</button>
+          </div>
+        </div>
+      </div>
+      <div class="maincontent">
+        <div class="project1">
+          <div class="titleofproject">TITLE OF PROJECT</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="blurred-bg"></div>
+    <div class="card-overlay">
+      <div class="card">
+        <textarea placeholder="PROJECT TITLE" rows="1"></textarea>
+        <textarea placeholder="Project Description" rows="5"></textarea>
+        <select>
+          <option value="" disabled selected>Category of Project</option>
+          <option value="web">Web Development</option>
+          <option value="uiux">UI/UX Designer</option>
+        </select>
+        <div class="horizontal-group">
+          <div class="input-group">
+            <label>Application Start Date</label>
+            <input type="date" />
+          </div>
+          <div class="input-group">
+            <label>Application End Date</label>
+            <input type="date" />
+          </div>
+        </div>
+        <div class="horizontal-group">
+          <div class="input-group">
+            <label>Project Start Date</label>
+            <input type="date" />
+          </div>
+          <div class="input-group">
+            <label>Project End Date</label>
+            <input type="date" />
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Upload Image/Video</label>
+          <input type="file" />
+        </div>
+        <div class="input-group">
+          <label>Upload Documents</label>
+          <input type="file" multiple />
+        </div>
+        <div class="input-group">
+          <label>Upload Links</label>
+          <input type="url" />
+        </div>
+        <button>POST</button>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("post-btn").addEventListener("click", function () {
+        document.querySelector(".blurred-bg").style.display = "block";
+        document.querySelector(".card-overlay").style.display = "block";
+      });
+    </script>
+  </body>
+</html>

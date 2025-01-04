@@ -3,88 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SKILL MATCH</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Skill Match- Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
 
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
-
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="projects.css" />
   </head>
   <body>
     <div class="navbar">
       <div class="left">
-        <img src="/images/logo.png" alt="Logo">
+        <img src="/images/logo.png" alt="Logo" />
         <a href="index.html">SKILL MATCH</a>
       </div>
       <div class="center">
-        <img src="/images/search.png" alt="Search">
-        <input type="text" placeholder="Search for Peoples/Projects...">
+        <img src="/images/search.png" alt="Search" />
+        <input type="text" placeholder="Search for Peoples/Projects..." />
       </div>
       <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
       <div class="right">
         <ul>
-          <li><a href="index.html"><img src="/images/home2.png" >Home</a></li>
-          <li><a href="peoples.html"><img src="/images/people2.png" alt="">Peoples</a></li>
-          <li><a href="projects.html"><img src="/images/applications3.png">Projects</a></li>
-          <li><a href="applications.html"><img src="/images/applications5.png" >Project Applications</a></li>
-          <li><a href="messages.html"><img src="/images/message2.png" >MESSAGES</a></li>
-          <li><a href="profile_page.html"><img src="/images/people2.png" ></a></li>
+          <li>
+            <a href="index.html"><img src="/images/home2.png" />Home</a>
+          </li>
+          <li>
+            <a href="peoples.html"
+              ><img src="/images/people2.png" alt="" />Peoples</a
+            >
+          </li>
+          <li>
+            <a href="projects.html"
+              ><img src="/images/applications3.png" />Projects</a
+            >
+          </li>
+          <li>
+            <a href="applications.html"
+              ><img src="/images/applications5.png" />Project Applications</a
+            >
+          </li>
+          <li>
+            <a href="messages.html"
+              ><img src="/images/message2.png" />MESSAGES</a
+            >
+          </li>
+          <li>
+            <a href="profile_page.html"><img src="/images/people2.png" /></a>
+          </li>
         </ul>
       </div>
     </div>
-    
+
     <script>
       function toggleMenu() {
-        document.querySelector('.right ul').classList.toggle('active');
+        document.querySelector(".right ul").classList.toggle("active");
       }
     </script>
 
+    <!-- ----------------navbar ended-------------------->
 
-  <!-- ----------------navbar ended-------------------->
-  
-  <header>
-    <h1>Projects Overview</h1>
-</header>
+    <header>
+      <h1>Projects Overview</h1>
+    </header>
 
-<nav>
-    <ul>
-        <li><a href="#hosted">Projects Hosted</a></li>
-        <li><a href="#completed">Projects Completed</a></li>
-        <li><a href="#ongoing">Projects Ongoing</a></li>
-        <li><a href="#upcoming">Projects Upcoming</a></li>
-    </ul>
-</nav>
+    <nav>
+      <ul>
+        <li><a href="projects_hosted_ongoing.html">Projects Hosted</a></li>
+        <li><a href="projects_completed.html">Projects Completed</a></li>
+        <li><a href="projects_ongoing.html">Projects Ongoing</a></li>
+        <li><a href="projects_scheduled.html">Projects Scheduled</a></li>
+      </ul>
+    </nav>
 
-<div class="container">
-    <div id="hosted" class="card">
-        <h2>Projects Hosted</h2>
+    <div class="container">
+      <div id="hosted" class="card">
+        <h2>Projects Hosted <span>3</span></h2>
+
         <p>Details about projects currently hosted on the platform.</p>
-    </div>
-    <div id="completed" class="card">
-        <h2>Projects Completed</h2>
+      </div>
+      <div id="completed" class="card">
+        <h2>Projects Completed <span>15</span></h2>
         <p>Details about projects that have been successfully completed.</p>
-    </div>
-    <div id="ongoing" class="card">
-        <h2>Projects Ongoing</h2>
+      </div>
+      <div id="ongoing" class="card">
+        <h2>Projects Ongoing <span>3</span></h2>
         <p>Details about projects currently in progress.</p>
+      </div>
+      <div id="upcoming" class="card">
+        <h2>Projects Scheduled <span>5</span></h2>
+        <p>Details about projects applied and got selected</p>
+      </div>
     </div>
-    <div id="upcoming" class="card">
-        <h2>Projects Upcoming</h2>
-        <p>Details about projects planned for the future.</p>
-    </div>
-</div>
-
-<!-- <footer>
-    <p>&copy; 2024 Projects Overview. All rights reserved.</p>
-</footer> -->
-
-
   </body>
 </html>

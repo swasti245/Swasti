@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Design</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: url("background.jpg") no-repeat center center/cover;
+      }
+      .blurred-bg {
+        filter: blur(8px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      .card-overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1000;
+      }
+      .card {
+        background: white;
+        width: 60vw;
+        max-width: 90%;
+        height: 70vh;
+        max-height: 90%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow-y: auto;
+      }
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: transparent;
+        border: none;
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      .title-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .projecttitle textarea {
+        width: 95%;
+        padding: 10px 5px;
+        margin: 10px 0;
+        border: 1px solid #0c7dd9;
+        border-radius: 5px;
+        resize: none;
+      }
+
+      .description textarea {
+        resize: none;
+        width: 95%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #0c7dd9;
+        border-radius: 5px;
+        height: 300px;
+      }
+      textarea {
+        resize: none;
+        height: auto;
+        min-height: 100px;
+      }
+
+      select,
+      input[type="file"],
+      input[type="date"] {
+        width: 99%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #0c7dd9;
+        border-radius: 5px;
+      }
+
+      .post-btn {
+        align-self: flex-end;
+        background: blue;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .post-btn:hover {
+        background: darkblue;
+      }
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .input-group label {
+        font-weight: bold;
+      }
+      @media (max-width: 1024px) {
+        .card {
+          width: 80%;
+          height: auto;
+        }
+      }
+      @media (max-width: 768px) {
+        .card {
+          width: 90%;
+          height: auto;
+          padding: 15px;
+        }
+        textarea {
+          min-height: 80px;
+        }
+        .post-btn {
+          padding: 8px 15px;
+        }
+      }
+      @media (max-width: 480px) {
+        .card {
+          width: 95%;
+          padding: 10px;
+        }
+        textarea {
+          min-height: 60px;
+        }
+        .post-btn {
+          padding: 6px 10px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blurred-bg"></div>
+
+    <!-- <a href="#" id="open-card">Open Card</a> -->
+
+    <div class="card-overlay" style="display: flex">
+      <div class="card">
+        <a href="index.html" class="close-btn">&times;</a>
+
+        <div class="projecttitle">
+          <textarea placeholder="PROJECT TITLE" rows="2"></textarea>
+        </div>
+        <div class="description">
+          <textarea placeholder="Description of Project" rows="8"></textarea>
+        </div>
+        <select name="mode" id="mode">
+          <option value="">Mode of Project</option>
+          <option value="online">ONLINE</option>
+          <option value="offline">OFFLINE</option>
+        </select>
+
+        <select>
+          <option value="" disabled selected>Category of Project</option>
+          <option value="web">Web Development</option>
+          <option value="Web Development">WEB Development</option>
+          <option value="AI & ML">
+            Artificial Intelligence and Machine Learning
+          </option>
+          <option value="BlockChain Technology">BlockChain Technology</option>
+          <option value="UI/UX">UI/UX Design</option>
+          <option value="APP Development">APP Development</option>
+          <option value="Information Security">Information Security</option>
+          <option value="ROBOTICS">ROBOTICS</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Mine Technology">Mine Technology</option>
+          <option value="Mechanics">Mechanics</option>
+        </select>
+        <div class="input-group">
+          <label for="start-date">Project Starting Date</label>
+          <input type="date" id="start-date" />
+        </div>
+        <div class="input-group">
+          <label for="start-date">Project Ending Date</label>
+          <input type="date" id="start-date" />
+        </div>
+        <div class="input-group">
+          <label for="start-date">Application Window Starts From</label>
+          <input type="date" id="start-date" />
+        </div>
+        <div class="input-group">
+          <label for="end-date">Application Window End Date</label>
+          <input type="date" id="end-date" />
+        </div>
+        <div class="input-group">
+          <label for="images">Images</label>
+          <input type="file" id="images" multiple />
+        </div>
+        <div class="input-group">
+          <label for="files">Files</label>
+          <input type="file" id="files" multiple />
+        </div>
+        <div class="input-group">
+          <label for="links">Links</label>
+          <input type="file" id="links" multiple />
+        </div>
+        <button class="post-btn" onclick="goToIndex()">POST</button>
+      </div>
+    </div>
+
+    <script>
+      // const openCard = document.getElementById("open-card");
+      const cardOverlay = document.querySelector(".card-overlay");
+      const closeBtn = document.querySelector(".close-btn");
+
+      openCard.addEventListener("click", (e) => {
+        e.preventDefault();
+        cardOverlay.style.display = "flex";
+      });
+
+      closeBtn.addEventListener("click", () => {
+        cardOverlay.style.display = "none";
+      });
+    </script>
+     <script>
+      // JavaScript function to navigate to the index page
+      function goToIndex() {
+        window.location.href = "index.html"; // Replace "index.html" with your index page URL if needed
+      }
+    </script>
+  </body>
+</html>

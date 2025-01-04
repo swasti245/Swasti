@@ -31,165 +31,54 @@
   </div>
 
 
-    <div class="profile-container">
-        <div class="profile-header">
-          <div class="profile-photo-container">
-            <img src="/images/people2.png" alt="Profile Photo" class="profile-photo">  
-         </div>
-            <div class="profile-details">
-                <h2>NAME</h2>
-                <h3>Designation</h3>
-                <h4>Institute</h4>
-              
-            </div>
+  <div class="profile-page">
+    <div class="sidebar">
+      <div class="profile-picture">
+        <img id="profile-img" src="/images/people2.png" alt="Profile Picture">
+        <div class="picture-options">
+          <button onclick="addPicture()">Edit Profile Photo</button>
+          <button onclick="removePicture()">Remove Profile Photo</button>
+          <button onclick="importPicture()">Import from Gallery</button>
         </div>
-
-        <div class="skills">
-          <h3>SKILLS</h2>
-          <P>Description of skills
-            <p>Skill 1 <textarea name="" id=""></textarea></p>
-            <p>Skill 2 <textarea name="" id=""></textarea></p>
-            <p>Skill 3 <textarea name="" id=""></textarea></p>
-            <p>Skill 4 <textarea name="" id=""></textarea></p>
-            <p>Skill 5 <textarea name="" id=""></textarea></p>
-          </P>
-        </div>
-
+      </div>
+      <div class="user-info">
+        <h2 id="user-name">User Name</h2>
+        <p id="designation">Designation</p>
+        <p id="institute">Institute</p>
         <div class="availability">
-            <label for="availability-toggle">Availability Status:</label>
-            <label class="toggle-switch">
-              <input type="checkbox">
-              <span class="slider"></span>
-            </label>
+          <span>Availablility Status </span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="availability-toggle">
+            <span class="slider"></span>
+          </label>
         </div>
-        
-
-        <div class="skills-section">
-          <h3>Ratings on Skills</h3>
-            <div class="skill_rating">
-              
-                <span>Skill 1</span>
-                <div class="stars">
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                </div>
-            </div>
-
-            <div class="skill_rating">
-                <span>Skill 2</span>
-                <div class="stars">
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                </div>
-            </div>
-            <div class="skill_rating">
-                <span>Skill 3</span>
-                <div class="stars">
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                </div>
-            </div>
-            <div class="skill_rating">
-                <span>Skill 4</span>
-                <div class="stars">
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                </div>
-            </div>
-            <div class="skill_rating">
-                <span>Skill 5</span>
-                <div class="stars">
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                    <button class="star">&#9733;</button>
-                </div>
-            </div>
+        <div class="user-actions">
+          <button onclick="editProfile()">Edit Profile</button>
+          <button onclick="openSettings()">Settings</button>
+          <a href="login.html"><button onclick="signOut()">Sign Out</button></a>
         </div>
-
-        <div class="projects-section">
-            <h3>Projects</h3>
-            <div class="projects-stats">
-                <div>
-                    <h4>Projects Hosted</h4>
-                    <p>5</p>
-                </div>
-                <div>
-                    <h4>Projects Completed</h4>
-                    <p>10</p>
-                </div>
-                <div>
-                    <h4>Projects Ongoing</h4>
-                    <p>2</p>
-                </div>
-                <div>
-                    <h4>Projects Scheduled</h4>
-                    <p>3</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="signout">
-            <button class="signout">Sign Out <a href="signup.html"></a></button>
-        </div>
+      </div>
     </div>
-
-    <script>
-         function togglePhotoOptions() {
-        const photoOptions = document.getElementById('photoOptions');
-        if (photoOptions.style.display === 'block') {
-            photoOptions.style.display = 'none';
-        } else {
-            photoOptions.style.display = 'block';
-        }
-    }
-
-    function openCamera(event) {
-        event.stopPropagation(); // Prevent triggering the toggle
-        alert('Opening Camera...');
-    }
-
-    function openGallery(event) {
-        event.stopPropagation(); // Prevent triggering the toggle
-        alert('Opening Gallery...');
-    }
-
-    function removePhoto(event) {
-        event.stopPropagation(); // Prevent triggering the toggle
-        alert('Removing Photo...');
-    }
-
-    // Close the options when clicking outside
-    document.addEventListener('click', (event) => {
-        const photoOptions = document.getElementById('photoOptions');
-        if (photoOptions && photoOptions.style.display === 'block') {
-            photoOptions.style.display = 'none';
-        }
-    });
-
-        document.querySelectorAll('.stars button').forEach(button => {
-            button.addEventListener('click', (event) => {
-                const stars = event.currentTarget.parentElement.querySelectorAll('button');
-                let clickedIndex = Array.from(stars).indexOf(event.currentTarget);
-                stars.forEach((star, index) => {
-                    star.classList.toggle('active', index <= clickedIndex);
-                });
-            });
-        });
-
-    </script>
+    <div class="content">
+      <div class="skills">
+        <h1>SKILLS</h1>
+        <div id="skill-list">
+          <span id="default-skill">Default Skill from Signup</span>
+        </div>
+        <button onclick="addSkillField()"> + Skills</button>
+      </div>
+      <div class="projects">
+        <h3>Projects</h3>
+        <div class="project-buttons">
+          <a href="projects_hosted.html">Projects Hosted <br><span id="hosted-count">0</span></a>
+          <a href="projects_completed.html">Projects Completed<br><span id="hosted-count">0</span></a>
+          <a href="projects_ongoing.html">Projects Ongoing <br><span id="hosted-count">0</span></a>
+          <a href="projects_scheduled.html">Projects Scheduled<br><span id="hosted-count">0</span></a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+    <script src="profile_page.js"></script>
 </body>
 </html>
