@@ -353,7 +353,7 @@ input:checked + .slider:before {
 }
 
 .user-actions button:hover {
-  background: rgba(85, 113, 128, 0.82);
+  background: rgba(172, 173, 173, 0.82);
 }
 
 .content {

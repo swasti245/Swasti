@@ -33,11 +33,10 @@ loginForm.addEventListener('submit', async (event) => {
 
     localStorage.setItem("displayName", user.displayName || "No Name Provided");
     localStorage.setItem("email", user.email || "No Email Provided");
-
-//     // Notify success and redirect to index.html
+   // Notify success and redirect to index.html
     alert('Login successful!');
     window.location.href = 'index.html';
-    //window.location.href = 'test.html';
+    
 
   } catch (error) {
     // Handle login errors
