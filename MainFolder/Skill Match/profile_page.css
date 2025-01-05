@@ -204,7 +204,8 @@ body {
 
 .profile-page {
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  flex-direction: row;
   gap: 0px;
   width: 100%;
   border-radius: 10px;
@@ -357,8 +358,8 @@ input:checked + .slider:before {
 }
 
 .content {
-  width: 68.65vw;
-  padding: 20px;
+  width: 70vw;
+  padding: 10px;
   background-color: #f4f4f4;
 }
 

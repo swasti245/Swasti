@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
     <link rel="stylesheet" href="profile_page.css">
-    <script src="profile_page.js" defer></script>
+    <script type="module" src="profile_page.js" defer></script>
 </head>
 <body>
   <div class="navbar">
@@ -42,16 +42,8 @@
         </div>
       </div>
       <div class="user-info">
-        <h2 id="user-name">Name: </h2>
-        <p id="designation">Designation: </p>
-        <p id="institute">Institute: </p>
-        <div class="email">Email Id: </div>
-        <div class="availability">
-          <span>Availablility Status </span>
-          <label class="toggle-switch">
-            <input type="checkbox" id="availability-toggle">
-            <span class="slider"></span>
-          </label>
+        
+        
         </div>
         <div class="user-actions">
           <button onclick="editProfile()">Edit Profile</button>
@@ -59,26 +51,27 @@
           <a href="login.html"><button onclick="signOut()">Sign Out</button></a>
         </div>
       </div>
-    </div>
-    <div class="content">
-      <div class="skills">
-        <h1>SKILLS</h1>
-        <div id="skill-list">
-          <span id="default-skill">Default Skill from Signup</span>
+      <div class="content">
+        <div class="skills">
+          <h1>SKILLS</h1>
+          <div id="skill-list">
+            <span id="default-skill">Default Skill from Signup</span>
+          </div>
+          <button onclick="addSkillField()"> + Skills</button>
         </div>
-        <button onclick="addSkillField()"> + Skills</button>
-      </div>
-      <div class="projects">
-        <h3>Projects</h3>
-        <div class="project-buttons">
-          <a href="projects_hosted.html">Projects Hosted <br><span id="hosted-count">0</span></a>
-          <a href="projects_completed.html">Projects Completed<br><span id="hosted-count">0</span></a>
-          <a href="projects_ongoing.html">Projects Ongoing <br><span id="hosted-count">0</span></a>
-          <a href="projects_scheduled.html">Projects Scheduled<br><span id="hosted-count">0</span></a>
-          
+        <div class="projects">
+          <h3>Projects</h3>
+          <div class="project-buttons">
+            <a href="projects_hosted.html">Projects Hosted <br><span id="hosted-count">0</span></a>
+            <a href="projects_completed.html">Projects Completed<br><span id="hosted-count">0</span></a>
+            <a href="projects_ongoing.html">Projects Ongoing <br><span id="hosted-count">0</span></a>
+            <a href="projects_scheduled.html">Projects Scheduled<br><span id="hosted-count">0</span></a>
+            
+          </div>
         </div>
       </div>
     </div>
+    
   </div>
     
 </body>

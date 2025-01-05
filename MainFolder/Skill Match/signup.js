@@ -19,7 +19,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 // Handle Sign Up
-const signUpButton = document.getElementById("authForm");
+export const signUpButton = document.getElementById("authForm");
 signUpButton.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -55,3 +55,21 @@ signUpButton.addEventListener("submit", async (event) => {
     alert(error.message);
   }
 });
+
+// let userCredentials = [];
+
+// function getUserCredentials(userData) {
+//   let userCredential = localStorage.getItem("userCredentials");
+//   userCredentials = userCredential ? JSON.parse(userCredentials) : [];
+ 
+// };
+
+// saveUserCredentials(){
+//   userCredentials.push(userData);
+//   localStorage.setItem("userCredentials", JSON.stringify(userCredentials));
+//   console.log("User credentials saved to local storage:", userData);
+// };
+
+// window.onload = function(){getUserCredentials();
+//   saveUserCredentials();
+// };

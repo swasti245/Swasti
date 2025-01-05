@@ -27,19 +27,19 @@ loginForm.addEventListener('submit', async (event) => {
   const password = document.getElementById('password').value;
 
   try {
-//     // Sign in with Firebase Auth
+
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
     localStorage.setItem("displayName", user.displayName || "No Name Provided");
     localStorage.setItem("email", user.email || "No Email Provided");
-   // Notify success and redirect to index.html
+   
     alert('Login successful!');
     window.location.href = 'index.html';
     
 
   } catch (error) {
-    // Handle login errors
+    
     console.error("Error logging in:", error.message);
     alert(error.message);
   }
