@@ -6,7 +6,6 @@
     <title>SKILL MATCH</title>
     <link rel="stylesheet" href="index.css" />
     <script type="module" src="index.js" defer></script>
-   
   </head>
   <body>
     <div class="navbar">
@@ -19,28 +18,40 @@
         <input type="text" placeholder="Search for Peoples/Projects..." />
       </div>
       <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
-      <div class="right">
+      <div class="right" id="navOptions">
         <ul>
           <li>
-            <a href="index.html"><img src="/images/home2.png" />Home</a>
+            <button id="home" type="submit">
+              <a href="index.html"><img src="/images/home2.png" />Home</a>
+            </button>
           </li>
           <li>
-            <a href="peoples.html"
-              ><img src="/images/people2.png" alt="" />Peoples</a
-            >
+            <button id="people" type="submit">
+              <a href="peoples.html"
+                ><img src="/images/people2.png" alt="" />Peoples</a
+              >
+            </button>
           </li>
           <li>
-            <a href="projects.html"
-              ><img src="/images/applications3.png" />Projects</a
-            >
+            <button id="project" type="submit">
+              <a href="projects.html"
+                ><img src="/images/applications3.png" />Projects</a
+              >
+            </button>
           </li>
           <li>
-            <a href="applications.html"
-              ><img src="/images/applications5.png" />Project Applications</a
-            >
+            <button id="applications" type="submit">
+              <a href="applications.html"
+                ><img src="/images/applications5.png" />Project Applications</a
+              >
+            </button>
           </li>
           <li>
-            <a href="profile_page.html"><img src="/images/people2.png" /></a>
+            <button type="submit" id="profileButton" class="login-btn">
+              <a href="profile_page.html"
+                ><img src="/images/people2.png" alt="" /></a
+              >
+            </button>
           </li>
         </ul>
       </div>
@@ -60,7 +71,8 @@
               <div class="skills" id="skill">SKILLS</div>
               <div class="email" id="email">EMAIL</div>
             </div>
-            <div class="status">STATUS:Available/Busy</div>
+            <div id="availability-status-display"></div>
+
             <div class="view-more">
               <a href="profile_page.html">VIEW MORE</a>
             </div>
@@ -107,7 +119,9 @@
             </p>
             <button class="field" id="query">ASK ANY QUERY</button>
             <button class="field" id="share">SHARE</button>
-            <div class="viewmore"><a class="field" href="project_page.html">VIEW MORE</a></div>
+            <div class="viewmore">
+              <a class="field" href="project_page.html">VIEW MORE</a>
+            </div>
           </div>
         </div>
 
@@ -140,7 +154,9 @@
             </p>
             <button class="field" id="query">ASK ANY QUERY</button>
             <button class="field" id="share">SHARE</button>
-            <div class="viewmore"><a class="field" href="project_page.html">VIEW MORE</a></div>
+            <div class="viewmore">
+              <a class="field" href="project_page.html">VIEW MORE</a>
+            </div>
           </div>
         </div>
 
@@ -173,7 +189,9 @@
             </p>
             <button class="field" id="query">ASK ANY QUERY</button>
             <button class="field" id="share">SHARE</button>
-            <div class="viewmore"><a class="field" href="project_page.html">VIEW MORE</a></div>
+            <div class="viewmore">
+              <a class="field" href="project_page.html">VIEW MORE</a>
+            </div>
           </div>
         </div>
       </div>

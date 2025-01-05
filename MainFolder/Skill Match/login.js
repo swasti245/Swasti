@@ -13,16 +13,16 @@ const firebaseConfig = {
   appId: "1:194495863137:web:7fcd7ab7149aa6a7700d20"
 };
 
-// // Initialize Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// // Handle Login
+// Handle Login
 const loginForm = document.getElementById('loginForm');
 loginForm.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-//   // Get form values
+// Get form values
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
 

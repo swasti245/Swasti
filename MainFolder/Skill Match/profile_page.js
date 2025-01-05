@@ -1,15 +1,22 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
-import { signUpButton } from "sigignup.js";  // Import the signUpButton from signup.js
-// Firebase configuration
+import {
+  getAuth,
+  onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+
+// Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDdftGzRbm_sOtbKSwivEVpNyaXVA4nzjc",
   authDomain: "skillmatch-act.firebaseapp.com",
   projectId: "skillmatch-act",
   storageBucket: "skillmatch-act.appspot.com",
   messagingSenderId: "194495863137",
-  appId: "1:194495863137:web:7fcd7ab7149aa6a7700d20"
+  appId: "1:194495863137:web:7fcd7ab7149aa6a7700d20",
 };
 
 // Initialize Firebase
@@ -17,57 +24,101 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Load user profile information
+// Monitor authentication state
 onAuthStateChanged(auth, async (user) => {
   if (user) {
+    console.log("User is signed in:", user.uid);
     try {
+      // Fetch user data from Firestore
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (userDoc.exists()) {
         const userData = userDoc.data();
-        document.getElementById("user-name").textContent = userData.fullName || "Name Not Available";
-        document.getElementById("designation").textContent = userData.designation || "Designation Not Available";
-        document.getElementById("institute").textContent = userData.institute || "Institute Not Available";
-        document.getElementById("default-skill").textContent = userData.skills || "Skills Not Available";
-        document.getElementById("email").textContent = userData.email || "Email Not Available";
+
+        // Populate the HTML with user data
+        document.getElementById("profileName").textContent =
+          userData.fullName || "Name Not Available";
+        document.getElementById("profileInstitute").textContent =
+          userData.institute || "Institute Not Available";
+        document.getElementById("profileDesignation").textContent =
+          userData.designation || "Designation Not Available";
+        document.getElementById("profileSkill").textContent =
+          userData.skills || "Skills Not Available";
+        document.getElementById("profileEmail").textContent =
+          userData.email || "Email Not Available";
+        document.getElementById ("availability").checked = userData.availabilityStatus;
       } else {
-        console.error("No user data found in Firestore.");
+        console.error("No user document found for this UID.");
       }
     } catch (error) {
-      console.error("Error fetching user data:", error);
+      console.error("Error fetching user data:", error.message);
     }
   } else {
-    console.log("User is not signed in.");
+    console.log("No user is signed in.");
+    // Clear profile page fields
+    document.getElementById("profileName").textContent = "Not Logged In";
+    document.getElementById("profileInstitute").textContent = "";
+    document.getElementById("profileDesignation").textContent = "";
+    document.getElementById("profileSkill").textContent = "";
+    document.getElementById("profileEmail").textContent = "";
   }
 });
 
-let userCredentials = [];
-getuserCredentials();
-function getuserCredentials(){
-  const userCredentials = localStorage.getItem("userCredentials");
-    userCredentials = JSON.parse(userCredentials);
+
+
+
+
+// Function to initialize availability status from local storage
+function initializeAvailabilityStatus() {
+  const availability = document.getElementById("availability");
+
+  // Check local storage for saved availability status
+  const savedStatus = localStorage.getItem("availabilityStatus");
+  
+  // Set the checkbox state based on the saved status
+  if (savedStatus === "true") {
+    availability.checked = true;
+  } else {
+    availability.checked = false;
   }
 
-function displayUserCredentials(){
-  let userCredentials = getuserCredentials();
-  const userCredentialsList = document.getElementById("user-info");
-  userCredentialsList.innerHTML = "";
-  userCredentials.forEach((userCredentials) => {
-    const li = document.createElement("li");
-    li.innerHTML = `
-    <h2 id="user-name">${userCredentials.fullName}</h2>
-        <p id="designation">${userCredentials.designation}</p>
-        <p id="institute">${userCredentials.institute}</p>
-        <div class="email">${userCredentials.email}</div>
-        <p id="default-skill">${userCredentials.skills}</p>
-        <div class="availability">
-          <span>Availablility Status </span>
-          <label class="toggle-switch">
-            <input type="checkbox" id="availability-toggle">
-            <span class="slider"></span>
-          </label>`;
-    userCredentialsList.appendChild(li);
+  // Add an event listener to save changes to local storage
+  availability.addEventListener("change", () => {
+    const currentStatus = availability.checked;
+    localStorage.setItem("availabilityStatus", currentStatus);
+    console.log("Availability Status updated to:", currentStatus);
   });
 }
 
-window.onload = function(){displayUserCredentials();};
+// Initialize the availability status on page load
+document.addEventListener("DOMContentLoaded", initializeAvailabilityStatus);
 
+
+
+
+
+
+
+// Example placeholder for adding or modifying pictures (replace with real logic)
+function addPicture() {
+  console.log("Add Picture clicked.");
+}
+
+function removePicture() {
+  console.log("Remove Picture clicked.");
+}
+
+function importPicture() {
+  console.log("Import Picture clicked.");
+}
+
+function editProfile() {
+  console.log("Edit Profile clicked.");
+}
+
+function openSettings() {
+  console.log("Settings clicked.");
+}
+
+function signOut() {
+  alert("Are you sure you want to Sign Out ?");
+}

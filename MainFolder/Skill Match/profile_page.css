@@ -369,6 +369,17 @@ input:checked + .slider:before {
   text-align: center;
 }
 
+#profileSkill{
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}
+#addskills{
+  margin-top: 7px;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}
 
 .projects h3 {
   margin-bottom: 10px;

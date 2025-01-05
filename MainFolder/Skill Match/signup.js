@@ -1,9 +1,8 @@
-// Import Firebase modules
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
-// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDdftGzRbm_sOtbKSwivEVpNyaXVA4nzjc",
   authDomain: "skillmatch-act.firebaseapp.com",
@@ -13,17 +12,17 @@ const firebaseConfig = {
   appId: "1:194495863137:web:7fcd7ab7149aa6a7700d20"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Handle Sign Up
+
 export const signUpButton = document.getElementById("authForm");
 signUpButton.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  // Get form values
+  
   const fullName = document.getElementById("rName").value;
   const email = document.getElementById("rEmail").value;
   const password = document.getElementById("rPassword").value;
@@ -32,11 +31,11 @@ signUpButton.addEventListener("submit", async (event) => {
   const skills = document.getElementById("rSkills").value;
 
   try {
-    // Register user in Firebase Auth
+  
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // Save user data to Firestore
+    
     await setDoc(doc(db, "users", user.uid), {
       fullName,
       email,
@@ -46,30 +45,49 @@ signUpButton.addEventListener("submit", async (event) => {
       createdAt: new Date().toISOString()
     });
 
-    // Notify success and redirect
+   
     alert("User signed up successfully!");
     window.location.href = "login.html";
   } catch (error) {
-    // Handle errors
     console.error("Error signing up:", error.message);
     alert(error.message);
   }
 });
 
-// let userCredentials = [];
 
-// function getUserCredentials(userData) {
-//   let userCredential = localStorage.getItem("userCredentials");
-//   userCredentials = userCredential ? JSON.parse(userCredentials) : [];
- 
-// };
 
-// saveUserCredentials(){
-//   userCredentials.push(userData);
-//   localStorage.setItem("userCredentials", JSON.stringify(userCredentials));
-//   console.log("User credentials saved to local storage:", userData);
-// };
+// import {
+//   getFirestore,
+//   collection,
+//   getDocs,
+//   updateDoc,
+//   doc,
+// } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
-// window.onload = function(){getUserCredentials();
-//   saveUserCredentials();
-// };
+// // Initialize Firestore
+// // const db = getFirestore();
+
+// // Function to add `availabilityStatus` to all documents in a collection
+// async function addAvailabilityStatusToAllDocs() {
+//   const collectionName = "users"; // Replace with your collection name
+//   const newField = { availabilityStatus: "Unavailable" }; // Default value
+
+//   try {
+//     const querySnapshot = await getDocs(collection(db, collectionName));
+
+//     // Iterate over each document and update it
+//     const updates = querySnapshot.docs.map((docSnapshot) => {
+//       const docRef = doc(db, collectionName, docSnapshot.id);
+//       return updateDoc(docRef, newField);
+//     });
+
+//     await Promise.all(updates); // Wait for all updates to complete
+//     console.log("All documents updated with availabilityStatus.");
+//   } catch (error) {
+//     console.error("Error updating documents:", error);
+//   }
+// }
+
+// // Call the function
+// addAvailabilityStatusToAllDocs();
+

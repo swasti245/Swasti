@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
     <link rel="stylesheet" href="profile_page.css">
-    <script type="module" src="profile_page.js" defer></script>
+    <script src="profile_page.js" type="module" defer></script>
 </head>
 <body>
   <div class="navbar">
     <div class="left">
       <img src="/images/logo.png" alt="Logo">
-      <a href="index.html">SKILL MATCH
-      </a>
+      <a href="index.html">SKILL MATCH</a>
     </div>
     <div class="center">
       <img src="/images/search.png" alt="Search">
@@ -30,7 +29,6 @@
     </div>
   </div>
 
-
   <div class="profile-page">
     <div class="sidebar">
       <div class="profile-picture">
@@ -42,8 +40,17 @@
         </div>
       </div>
       <div class="user-info">
+        <h2 id="profileName">Name</h2>
+        <p id="profileDesignation">Designation</p>
+        <p id="profileInstitute">Institute</p>
+        <p id="profileEmail">Email</p>
         
-        
+        <div class="availability" id="availability">
+          <span>Availability Status </span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="availability-toggle">
+            <span class="slider"></span>
+          </label>
         </div>
         <div class="user-actions">
           <button onclick="editProfile()">Edit Profile</button>
@@ -51,28 +58,26 @@
           <a href="login.html"><button onclick="signOut()">Sign Out</button></a>
         </div>
       </div>
-      <div class="content">
-        <div class="skills">
-          <h1>SKILLS</h1>
-          <div id="skill-list">
-            <span id="default-skill">Default Skill from Signup</span>
-          </div>
-          <button onclick="addSkillField()"> + Skills</button>
+    </div>
+    <div class="content">
+      <div class="skills">
+        <h1 id="skill-list">SKILLS</h1>
+        <div id="profileSkill">
+          <span id="default-skill">Primary  Skill</span>
         </div>
-        <div class="projects">
-          <h3>Projects</h3>
-          <div class="project-buttons">
-            <a href="projects_hosted.html">Projects Hosted <br><span id="hosted-count">0</span></a>
-            <a href="projects_completed.html">Projects Completed<br><span id="hosted-count">0</span></a>
-            <a href="projects_ongoing.html">Projects Ongoing <br><span id="hosted-count">0</span></a>
-            <a href="projects_scheduled.html">Projects Scheduled<br><span id="hosted-count">0</span></a>
-            
-          </div>
+        <div class="addskills" id="addskills"><button onclick="addSkillField()"> + Skills</button></div>
+        
+      </div>
+      <div class="projects">
+        <h3>Projects</h3>
+        <div class="project-buttons">
+          <a href="projects_hosted_ongoing.html">Projects Hosted <br><span id="hosted-count">0</span></a>
+          <a href="projects_completed.html">Projects Completed<br><span id="completed-count">0</span></a>
+          <a href="projects_ongoing.html">Projects Ongoing <br><span id="ongoing-count">0</span></a>
+          <a href="projects_scheduled.html">Projects Scheduled<br><span id="scheduled-count">0</span></a>
         </div>
       </div>
     </div>
-    
   </div>
-    
 </body>
 </html>
