@@ -29,6 +29,7 @@ signUpButton.addEventListener("submit", async (event) => {
   const designation = document.getElementById("rDesignation").value;
   const institute = document.getElementById("rInstitute").value;
   const skills = document.getElementById("rSkills").value;
+  // const availabilityStatus = document.getElementById("availability");
 
   try {
   
@@ -42,6 +43,7 @@ signUpButton.addEventListener("submit", async (event) => {
       designation,
       institute,
       skills,
+      availabilityStatus: "true",
       createdAt: new Date().toISOString()
     });
 
@@ -53,41 +55,4 @@ signUpButton.addEventListener("submit", async (event) => {
     alert(error.message);
   }
 });
-
-
-
-// import {
-//   getFirestore,
-//   collection,
-//   getDocs,
-//   updateDoc,
-//   doc,
-// } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
-
-// // Initialize Firestore
-// // const db = getFirestore();
-
-// // Function to add `availabilityStatus` to all documents in a collection
-// async function addAvailabilityStatusToAllDocs() {
-//   const collectionName = "users"; // Replace with your collection name
-//   const newField = { availabilityStatus: "Unavailable" }; // Default value
-
-//   try {
-//     const querySnapshot = await getDocs(collection(db, collectionName));
-
-//     // Iterate over each document and update it
-//     const updates = querySnapshot.docs.map((docSnapshot) => {
-//       const docRef = doc(db, collectionName, docSnapshot.id);
-//       return updateDoc(docRef, newField);
-//     });
-
-//     await Promise.all(updates); // Wait for all updates to complete
-//     console.log("All documents updated with availabilityStatus.");
-//   } catch (error) {
-//     console.error("Error updating documents:", error);
-//   }
-// }
-
-// // Call the function
-// addAvailabilityStatusToAllDocs();
 

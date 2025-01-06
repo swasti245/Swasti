@@ -69,7 +69,7 @@ onAuthStateChanged(auth, async (user) => {
 
 // Function to initialize availability status from local storage
 function initializeAvailabilityStatus() {
-  const availability = document.getElementById("availability");
+  const availability = document.getElementById("availability-toggle");
 
   // Check local storage for saved availability status
   const savedStatus = localStorage.getItem("availabilityStatus");

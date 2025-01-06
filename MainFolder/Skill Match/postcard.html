@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Card Design</title>
+    <title>Skill Match-POST</title>
     <style>
       body {
         margin: 0;
@@ -83,7 +83,7 @@
       textarea {
         resize: none;
         height: auto;
-        min-height: 100px;
+        min-height: 50px;
       }
 
       select,
@@ -116,6 +116,15 @@
       }
       .input-group label {
         font-weight: bold;
+      }
+
+      .input-group textarea{
+        width: 95%;
+        padding: 10px 5px;
+        margin: 10px 0;
+        border: 1px solid #0c7dd9;
+        border-radius: 5px;
+        resize: none;
       }
       @media (max-width: 1024px) {
         .card {
@@ -153,32 +162,28 @@
   </head>
   <body>
     <div class="blurred-bg"></div>
-
-    <!-- <a href="#" id="open-card">Open Card</a> -->
-
+  
     <div class="card-overlay" style="display: flex">
       <div class="card">
         <a href="index.html" class="close-btn">&times;</a>
-
+  
         <div class="projecttitle">
-          <textarea placeholder="PROJECT TITLE" rows="2"></textarea>
+          <textarea id="project_title" placeholder="PROJECT TITLE" rows="2"></textarea>
         </div>
         <div class="description">
-          <textarea placeholder="Description of Project" rows="8"></textarea>
+          <textarea id="project_description" placeholder="Description of Project" rows="8"></textarea>
         </div>
-        <select name="mode" id="mode">
+        <select name="mode" id="projectMode">
           <option value="">Mode of Project</option>
           <option value="online">ONLINE</option>
           <option value="offline">OFFLINE</option>
         </select>
-
-        <select>
+  
+        <select name="category" id="projectCategory">
           <option value="" disabled selected>Category of Project</option>
           <option value="web">Web Development</option>
           <option value="Web Development">WEB Development</option>
-          <option value="AI & ML">
-            Artificial Intelligence and Machine Learning
-          </option>
+          <option value="AI & ML">Artificial Intelligence and Machine Learning</option>
           <option value="BlockChain Technology">BlockChain Technology</option>
           <option value="UI/UX">UI/UX Design</option>
           <option value="APP Development">APP Development</option>
@@ -188,57 +193,33 @@
           <option value="Mine Technology">Mine Technology</option>
           <option value="Mechanics">Mechanics</option>
         </select>
+        
         <div class="input-group">
           <label for="start-date">Project Starting Date</label>
           <input type="date" id="start-date" />
         </div>
         <div class="input-group">
-          <label for="start-date">Project Ending Date</label>
-          <input type="date" id="start-date" />
-        </div>
-        <div class="input-group">
-          <label for="start-date">Application Window Starts From</label>
-          <input type="date" id="start-date" />
-        </div>
-        <div class="input-group">
-          <label for="end-date">Application Window End Date</label>
+          <label for="end-date">Project Ending Date</label>
           <input type="date" id="end-date" />
         </div>
+        
+  
         <div class="input-group">
-          <label for="images">Images</label>
-          <input type="file" id="images" multiple />
+          <label for="fileId">Files</label>
+          <input type="file" id="fileId" multiple />
+          
         </div>
-        <div class="input-group">
-          <label for="files">Files</label>
-          <input type="file" id="files" multiple />
+        
+        <div class="input-group" id="project-link">
+          <label for="project_link">Link</label>
+          <textarea id="project_link" placeholder="Paste a Link" rows="1"></textarea>
         </div>
-        <div class="input-group">
-          <label for="links">Links</label>
-          <input type="file" id="links" multiple />
-        </div>
-        <button class="post-btn" onclick="goToIndex()">POST</button>
+        <button type="submit" class="post-btn" id="postButton">POST</button>
       </div>
     </div>
-
-    <script>
-      // const openCard = document.getElementById("open-card");
-      const cardOverlay = document.querySelector(".card-overlay");
-      const closeBtn = document.querySelector(".close-btn");
-
-      openCard.addEventListener("click", (e) => {
-        e.preventDefault();
-        cardOverlay.style.display = "flex";
-      });
-
-      closeBtn.addEventListener("click", () => {
-        cardOverlay.style.display = "none";
-      });
-    </script>
-     <script>
-      // JavaScript function to navigate to the index page
-      function goToIndex() {
-        window.location.href = "index.html"; // Replace "index.html" with your index page URL if needed
-      }
-    </script>
+  
+    <script src="postcard.js" type="module" defer></script>
   </body>
+  
+
 </html>
