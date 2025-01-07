@@ -92,8 +92,9 @@ body {
 .right ul li button {
   color: rgb(227, 227, 227);
   display: flex;
+  justify-content: center;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   position: relative;
   padding: 0px;
   text-align: center;
@@ -113,6 +114,56 @@ body {
   background: #929090;
   position: absolute;
   bottom: -5px;
+  left: 0;
+}.right {
+  display: flex;
+  align-items: center;
+}
+
+.right ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.right ul li {
+  margin: 0 10px;
+  background-color: rgba(7, 71, 91, 0.82);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right ul li button {
+  background-color: rgba(7, 71, 91, 0.82);
+  text-wrap: #f4f4f4;
+  outline: none;
+  border: none;
+  position: relative;
+  padding: 0px;
+}
+.right ul li a{
+  color: #f4f4f4;
+  text-align: center;
+  font-size: small;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.right ul li button a img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.right ul li button:hover::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #929090;
+  position: absolute;
+  bottom: -8px;
   left: 0;
 }
 

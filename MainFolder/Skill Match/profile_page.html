@@ -10,21 +10,49 @@
 <body>
   <div class="navbar">
     <div class="left">
-      <img src="/images/logo.png" alt="Logo">
+      <img src="/images/logo.png" alt="Logo" />
       <a href="index.html">SKILL MATCH</a>
     </div>
     <div class="center">
-      <img src="/images/search.png" alt="Search">
-      <input type="text" placeholder="Search for Peoples/Projects...">
+      <img src="/images/search.png" alt="Search" />
+      <input type="text" placeholder="Search for Peoples/Projects..." />
     </div>
     <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
-    <div class="right">
+    <div class="right" id="navOptions">
       <ul>
-        <li><a href="index.html"><img src="/images/home2.png" >Home</a></li>
-        <li><a href="peoples.html"><img src="/images/people2.png" alt="">Peoples</a></li>
-        <li><a href="projects.html"><img src="/images/applications3.png">Projects</a></li>
-        <li><a href="applications.html"><img src="/images/applications5.png" >Project Applications</a></li>
-        <li><a href="profile_page.html"><img src="/images/people2.png" ></a></li>
+        <li>
+          <button id="home" type="submit">
+            <a href="index.html"><img src="/images/home2.png" />Home</a>
+          </button>
+        </li>
+        <li>
+          <button id="people" type="submit">
+            <a href="peoples.html"
+              ><img src="/images/people2.png" alt="" />Peoples</a
+            >
+          </button>
+        </li>
+        <li>
+          <button id="project" type="submit">
+            <a href="projects.html"
+              ><img src="/images/applications3.png" />Projects</a
+            >
+          </button>
+        </li>
+        <li>
+          <button id="applications" type="submit">
+            <a href="applications.html"
+              ><img src="/images/applications5.png" />Project Applicants</a
+            >
+          </button>
+        </li>
+        <li>
+          <button type="submit" id="profileButton" class="login-btn">
+            <a href="profile_page.html"
+              ><img src="/images/people2.png" alt="" /></a
+            >
+          </button>
+        </li>
       </ul>
     </div>
   </div>
