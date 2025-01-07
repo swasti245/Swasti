@@ -25,13 +25,13 @@ const db = getFirestore(app);
 // Monitor authentication state
 onAuthStateChanged(auth, async (user) => {
   if (user) {
-    // Fetch user data from Firestore
+  
     try {
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (userDoc.exists()) {
         const userData = userDoc.data();
 
-        // Save user data to local storage
+       
         localStorage.setItem("userName", userData.fullName);
         localStorage.setItem("userEmail", userData.email);
         localStorage.setItem("userDesignation", userData.designation);
@@ -39,7 +39,7 @@ onAuthStateChanged(auth, async (user) => {
         localStorage.setItem("userSkill", userData.skills);
         localStorage.setItem("availabilityStatus", userData.availabilityStatus);
 
-        // Update the page with user data
+        
         document.getElementById("name").textContent =
           userData.fullName || "Name Not Available";
         document.getElementById("institute").textContent =
@@ -58,7 +58,7 @@ onAuthStateChanged(auth, async (user) => {
       console.error("Error fetching user data:", error);
     }
   } else {
-    // User is not signed in
+    
     document.getElementById("name").textContent = "Not Logged In";
     document.getElementById("institute").textContent = "";
     document.getElementById("designation").textContent = "";
@@ -69,12 +69,12 @@ onAuthStateChanged(auth, async (user) => {
 
 
   
-// Handle Login
+
 const profileButton= document.getElementById('profileButton');
 profileButton.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-// Get form values
+
   const email = document.getElementById('email').value;
   const name = document.getElementById('name').value;
   const designation = document.getElementById('designation').value;

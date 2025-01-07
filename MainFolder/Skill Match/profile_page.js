@@ -9,7 +9,7 @@ import {
   getDoc,
 } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
-// Firebase Configuration
+
 const firebaseConfig = {
   apiKey: "AIzaSyDdftGzRbm_sOtbKSwivEVpNyaXVA4nzjc",
   authDomain: "skillmatch-act.firebaseapp.com",
@@ -19,22 +19,22 @@ const firebaseConfig = {
   appId: "1:194495863137:web:7fcd7ab7149aa6a7700d20",
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Monitor authentication state
+
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     console.log("User is signed in:", user.uid);
     try {
-      // Fetch user data from Firestore
+     
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (userDoc.exists()) {
         const userData = userDoc.data();
 
-        // Populate the HTML with user data
+        
         document.getElementById("profileName").textContent =
           userData.fullName || "Name Not Available";
         document.getElementById("profileInstitute").textContent =
@@ -67,21 +67,21 @@ onAuthStateChanged(auth, async (user) => {
 
 
 
-// Function to initialize availability status from local storage
+
 function initializeAvailabilityStatus() {
   const availability = document.getElementById("availability-toggle");
 
-  // Check local storage for saved availability status
+ 
   const savedStatus = localStorage.getItem("availabilityStatus");
   
-  // Set the checkbox state based on the saved status
+  
   if (savedStatus === "true") {
     availability.checked = true;
   } else {
     availability.checked = false;
   }
 
-  // Add an event listener to save changes to local storage
+
   availability.addEventListener("change", () => {
     const currentStatus = availability.checked;
     localStorage.setItem("availabilityStatus", currentStatus);
@@ -89,7 +89,7 @@ function initializeAvailabilityStatus() {
   });
 }
 
-// Initialize the availability status on page load
+
 document.addEventListener("DOMContentLoaded", initializeAvailabilityStatus);
 
 
@@ -98,27 +98,3 @@ document.addEventListener("DOMContentLoaded", initializeAvailabilityStatus);
 
 
 
-// Example placeholder for adding or modifying pictures (replace with real logic)
-function addPicture() {
-  console.log("Add Picture clicked.");
-}
-
-function removePicture() {
-  console.log("Remove Picture clicked.");
-}
-
-function importPicture() {
-  console.log("Import Picture clicked.");
-}
-
-function editProfile() {
-  console.log("Edit Profile clicked.");
-}
-
-function openSettings() {
-  console.log("Settings clicked.");
-}
-
-function signOut() {
-  alert("Are you sure you want to Sign Out ?");
-}

@@ -12,12 +12,12 @@ const firebaseConfig = {
   appId: "1:194495863137:web:7fcd7ab7149aa6a7700d20"
 };
 
-// Initialize Firebase services
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-// Function to handle file upload
+
 async function uploadFile(file) {
   const fileRef = ref(storage, `uploads/${file.name}`); // Define storage path
   const uploadTask = uploadBytesResumable(fileRef, file);
@@ -42,7 +42,7 @@ async function uploadFile(file) {
   });
 }
 
-// Handle form submission
+
 document.getElementById("postButton").addEventListener("click", async (event) => {
   event.preventDefault();
 
@@ -59,7 +59,7 @@ document.getElementById("postButton").addEventListener("click", async (event) =>
   try {
     let fileURLs = [];
 
-    // Upload all selected files
+  
     if (files.length > 0) {
       for (let i = 0; i < files.length; i++) {
         const fileURL = await uploadFile(files[i]);
@@ -67,8 +67,8 @@ document.getElementById("postButton").addEventListener("click", async (event) =>
       }
     }
 
-    // Save project details to Firestore
-    const uniqueId = `project_${Date.now()}`; // Generate unique ID
+
+    const uniqueId = `project_${Date.now()}`; 
     await setDoc(doc(db, "project_details", uniqueId), {
       projectTitle,
       description,
@@ -77,7 +77,7 @@ document.getElementById("postButton").addEventListener("click", async (event) =>
       startDate,
       endDate,
       projectLink,
-      fileURLs, // Array of uploaded file URLs
+      fileURLs, 
       createdAt: new Date().toISOString(),
     });
 

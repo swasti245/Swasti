@@ -9,7 +9,7 @@ import {
   getDoc,
 } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
-// Firebase Configuration
+
 const firebaseConfig = {
   apiKey: "AIzaSyDdftGzRbm_sOtbKSwivEVpNyaXVA4nzjc",
   authDomain: "skillmatch-act.firebaseapp.com",
@@ -19,22 +19,21 @@ const firebaseConfig = {
   appId: "1:194495863137:web:7fcd7ab7149aa6a7700d20",
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Monitor authentication state
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     console.log("User is signed in:", user.uid);
     try {
-      // Fetch user data from Firestore
+      
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (userDoc.exists()) {
         const userData = userDoc.data();
 
-        // Populate the HTML with user data
+       
         document.getElementById("profileName").textContent =
           userData.fullName || "Name Not Available";
         document.getElementById("profileInstitute").textContent =
@@ -53,7 +52,7 @@ onAuthStateChanged(auth, async (user) => {
     }
   } else {
     console.log("No user is signed in.");
-    // Clear profile page fields
+    
     document.getElementById("profileName").textContent = "Not Logged In";
     document.getElementById("profileInstitute").textContent = "";
     document.getElementById("profileDesignation").textContent = "";
@@ -62,27 +61,3 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
-// Example placeholder for adding or modifying pictures (replace with real logic)
-function addPicture() {
-  console.log("Add Picture clicked.");
-}
-
-function removePicture() {
-  console.log("Remove Picture clicked.");
-}
-
-function importPicture() {
-  console.log("Import Picture clicked.");
-}
-
-function editProfile() {
-  console.log("Edit Profile clicked.");
-}
-
-function openSettings() {
-  console.log("Settings clicked.");
-}
-
-function signOut() {
-  console.log("Sign Out clicked.");
-}
