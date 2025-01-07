@@ -79,14 +79,8 @@ profileButton.addEventListener("submit", async (event) => {
 
     localStorage.setItem("displayName", user.displayName || "No Name Provided");
     localStorage.setItem("displayEmail", user.email || "No Email Provided");
-    localStorage.setItem(
-      "displayDesignation",
-      user.designation || "No Designation Provided"
-    );
-    localStorage.setItem(
-      "displayInstitute",
-      user.institute || "No Institute Provided"
-    );
+    localStorage.setItem("displayDesignation", user.designation || "No Designation Provided");
+    localStorage.setItem("displayInstitute", user.institute || "No Institute Provided");
     localStorage.setItem("displaySkill", user.skill || "No Skill Provided");
 
     window.location.href = "profile_page2.html";
