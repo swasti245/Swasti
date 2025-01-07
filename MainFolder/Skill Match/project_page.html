@@ -54,7 +54,7 @@
 .start-date,
 .end-date,
 .projectdescription,
-.photoorvideo {
+.projectMode{
   background-color: whitesmoke;
   border-radius: 10px;
   display: flex;
@@ -93,20 +93,16 @@
 
 .projectdescription {
   grid-column: 2/5;
-  grid-row: 2/5;
+  grid-row: 2/6;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 7px;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 14px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: smaller;
   font-weight: 500;
   border-radius: 15px;
 }
 
-.photoorvideo {
-  grid-column: 2/5;
-  grid-row: 5/7;
-}
 
 .apply {
   color: whitesmoke;
@@ -175,10 +171,7 @@ button:hover {
     grid-row: auto;
   }
 
-  .window {
-    grid-column: 1/-1;
-    grid-row: auto;
-  }
+  
 
   .start-date {
     grid-column: 1/-1;
@@ -190,11 +183,7 @@ button:hover {
     grid-row: auto;
   }
 
-  .photoorvideo {
-    grid-column: 1/-1;
-    grid-row: auto;
-  }
-
+  
   .apply {
     grid-column: 1/-1;
     grid-row: auto;
@@ -210,8 +199,8 @@ button:hover {
 
   .close-btn {
     font-size: 24px;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 5px;
   }
 }
 
@@ -228,15 +217,12 @@ button:hover {
          <div class="designation">Designation of FACULTY</div> 
          <div class="institute">Institute of Faculty</div>
         </div>
-        <div class="window">
-          Application Date: <br />__/__/____ to __/__/____
-        </div>
         <div class="typeofproject">CATEGORY:________</div>
         <div class="attachedfile">ATTACHMENT</div>
         <div class="projectdescription">Description of Project...</div>
-        <div class="photoorvideo"></div>
         <div class="start-date">Begins from: <br />__/__/____ to __/__/____</div>
         <div class="end-date">Ends in: <br />__/__/____ to __/__/____</div>
+        <div class="projectMode"> Mode of Project: Online/Offline</div>
         <div class="apply"><button>APPLY</button></div>
       </div>
     </div>
