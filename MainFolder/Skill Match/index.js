@@ -22,16 +22,13 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Monitor authentication state
 onAuthStateChanged(auth, async (user) => {
   if (user) {
-  
     try {
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (userDoc.exists()) {
         const userData = userDoc.data();
 
-       
         localStorage.setItem("userName", userData.fullName);
         localStorage.setItem("userEmail", userData.email);
         localStorage.setItem("userDesignation", userData.designation);
@@ -39,7 +36,6 @@ onAuthStateChanged(auth, async (user) => {
         localStorage.setItem("userSkill", userData.skills);
         localStorage.setItem("availabilityStatus", userData.availabilityStatus);
 
-        
         document.getElementById("name").textContent =
           userData.fullName || "Name Not Available";
         document.getElementById("institute").textContent =
@@ -57,50 +53,45 @@ onAuthStateChanged(auth, async (user) => {
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
-  } else {
-    
-    document.getElementById("name").textContent = "Not Logged In";
-    document.getElementById("institute").textContent = "";
-    document.getElementById("designation").textContent = "";
-    document.getElementById("skill").textContent = "";
-    document.getElementById("email").textContent = "";
   }
-})
+});
 
-
-  
-
-const profileButton= document.getElementById('profileButton');
-profileButton.addEventListener('submit', async (event) => {
+const profileButton = document.getElementById("profileButton");
+profileButton.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-
-  const email = document.getElementById('email').value;
-  const name = document.getElementById('name').value;
-  const designation = document.getElementById('designation').value;
-  const institute = document.getElementById('institute').value;
-  const skill = document.getElementById('skill').value;
+  const email = document.getElementById("email").value;
+  const name = document.getElementById("name").value;
+  const designation = document.getElementById("designation").value;
+  const institute = document.getElementById("institute").value;
+  const skill = document.getElementById("skill").value;
 
   try {
-
-    const userCredential = await signInWithEmailAndPassword(auth, email, name, designation, institute, skill);
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      name,
+      designation,
+      institute,
+      skill
+    );
     const user = userCredential.user;
 
     localStorage.setItem("displayName", user.displayName || "No Name Provided");
     localStorage.setItem("displayEmail", user.email || "No Email Provided");
-    localStorage.setItem("displayDesignation", user.designation || "No Designation Provided");
-    localStorage.setItem("displayInstitute", user.institute || "No Institute Provided");
+    localStorage.setItem(
+      "displayDesignation",
+      user.designation || "No Designation Provided"
+    );
+    localStorage.setItem(
+      "displayInstitute",
+      user.institute || "No Institute Provided"
+    );
     localStorage.setItem("displaySkill", user.skill || "No Skill Provided");
-   
-    
-    window.location.href = 'profile_page2.html';
-    
 
+    window.location.href = "profile_page2.html";
   } catch (error) {
-    
     console.error("Error logging in:", error.message);
     alert(error.message);
   }
 });
-
-

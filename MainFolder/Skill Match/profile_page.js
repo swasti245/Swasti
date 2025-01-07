@@ -70,10 +70,7 @@ onAuthStateChanged(auth, async (user) => {
 
 function initializeAvailabilityStatus() {
   const availability = document.getElementById("availability-toggle");
-
- 
   const savedStatus = localStorage.getItem("availabilityStatus");
-  
   
   if (savedStatus === "true") {
     availability.checked = true;
@@ -91,10 +88,4 @@ function initializeAvailabilityStatus() {
 
 
 document.addEventListener("DOMContentLoaded", initializeAvailabilityStatus);
-
-
-
-
-
-
 

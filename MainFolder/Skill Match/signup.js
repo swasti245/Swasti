@@ -18,7 +18,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-export const signUpButton = document.getElementById("authForm");
+const signUpButton = document.getElementById("authForm");
 signUpButton.addEventListener("submit", async (event) => {
   event.preventDefault();
 
