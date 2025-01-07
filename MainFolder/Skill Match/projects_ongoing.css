@@ -483,14 +483,17 @@ nav ul li a:hover {
 .project-card button  {
   margin-top: 10px;
   padding: 10px 15px;
-  background-color: #333;
-  color: white;
+  background-color: rgb(7, 71, 91);
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
+
+.project-card button a{
+  color: #f4f4f4;
+}
 .project-card button:hover {
-  background-color: #575757;
+  background-color: rgb(2, 32, 41);
 }
 
 

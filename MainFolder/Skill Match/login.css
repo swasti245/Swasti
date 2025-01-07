@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: rgba(111, 152, 165, 0.801);
+    background: linear-gradient(to bottom right, rgba(135, 180, 193, 0.548) 65%,rgba(7, 71, 91, 0.74)35%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,12 +22,13 @@ body {
 }
 
 .login-card {
-    background-color: #fff;
+    background:-moz-repeating-radial-gradient();
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px  rgba(0, 0, 0, 0.256);
     width: 100%;
     text-align: center;
+    z-index: 100;
 }
 
 h2 {
@@ -47,10 +48,11 @@ label {
 }
 
 input {
+    background: none;
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid rgba(7, 71, 91, 0.74);
     border-radius: 4px;
     font-size: 16px;
     outline: none;
