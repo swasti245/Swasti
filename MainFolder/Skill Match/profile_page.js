@@ -9,7 +9,6 @@ import {
   getDoc,
 } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyDdftGzRbm_sOtbKSwivEVpNyaXVA4nzjc",
   authDomain: "skillmatch-act.firebaseapp.com",
@@ -19,22 +18,18 @@ const firebaseConfig = {
   appId: "1:194495863137:web:7fcd7ab7149aa6a7700d20",
 };
 
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-
 
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     console.log("User is signed in:", user.uid);
     try {
-     
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (userDoc.exists()) {
         const userData = userDoc.data();
 
-        
         document.getElementById("profileName").textContent =
           userData.fullName || "Name Not Available";
         document.getElementById("profileInstitute").textContent =
@@ -45,7 +40,8 @@ onAuthStateChanged(auth, async (user) => {
           userData.skills || "Skills Not Available";
         document.getElementById("profileEmail").textContent =
           userData.email || "Email Not Available";
-        document.getElementById ("availability").checked = userData.availabilityStatus;
+        document.getElementById("availability").checked =
+          userData.availabilityStatus;
       } else {
         console.error("No user document found for this UID.");
       }
@@ -63,21 +59,15 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
-
-
-
-
-
 function initializeAvailabilityStatus() {
   const availability = document.getElementById("availability-toggle");
   const savedStatus = localStorage.getItem("availabilityStatus");
-  
+
   if (savedStatus === "true") {
     availability.checked = true;
   } else {
     availability.checked = false;
   }
-
 
   availability.addEventListener("change", () => {
     const currentStatus = availability.checked;
@@ -86,6 +76,4 @@ function initializeAvailabilityStatus() {
   });
 }
 
-
 document.addEventListener("DOMContentLoaded", initializeAvailabilityStatus);
-
